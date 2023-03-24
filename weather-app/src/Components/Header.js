@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 function Header() {
   const [hidden, setHidden] = useState(false);
 
+  //On scroll Dissapear
   const handleScroll = () => {
     const scrollPosition = window.pageYOffset;
     if (scrollPosition > 0 && !hidden) {
@@ -12,7 +14,6 @@ function Header() {
       setHidden(false);
     }
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -20,10 +21,15 @@ function Header() {
     };
   }, [hidden]);
 
+
+
+
+
+
   return (
     <div className={`header${hidden ? " hidden" : ""}`}>
       <a className="logo">
-       The Weather App 
+        <img src=''></img>
       </a>
       <div className="menu">
         <Link to={'/'}>

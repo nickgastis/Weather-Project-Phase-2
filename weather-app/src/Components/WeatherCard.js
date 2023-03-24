@@ -2,7 +2,9 @@ import React from "react";
 
 function WeatherCard() {
 return (
-<div></div>
+<div className="weather-card">
+
+</div>
 )
 }
 
