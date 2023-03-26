@@ -1,8 +1,16 @@
 import React from "react";
 import WeatherContainer from "./WeatherContainer";
+import { useState } from "react";
 
 
 function Home() {
+    const cities = ["dallas", "london"]
+
+
+ 
+    
+
+
 return (
 <div className="home">
 <div class="title">
@@ -15,7 +23,7 @@ return (
     <div class="box">R</div>
 </div>
     <h1 className="popular-cities">Popular Cities</h1>
-    <WeatherContainer />
+    <WeatherContainer cities={cities}/>
 </div>
 )
 }
