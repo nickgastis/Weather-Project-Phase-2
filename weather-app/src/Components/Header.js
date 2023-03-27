@@ -29,7 +29,7 @@ function Header() {
   return (
     <div className={`header${hidden ? " hidden" : ""}`}>
       <a className="logo">
-        <img src=''></img>
+      <img src='/images/logo-1.png' className='header-logo' alt=""></img>
       </a>
       <div className="menu">
         <Link to={'/'}>

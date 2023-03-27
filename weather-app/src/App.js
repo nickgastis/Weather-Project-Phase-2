@@ -1,4 +1,5 @@
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import { Routes, Route } from "react-router-dom"
 import './App.css';
 import Home from './Components/Home';
@@ -37,6 +38,7 @@ function App() {
         <Route path={'/saveList'} element={<SaveList />} />
         <Route path={'/search'} element={<Search />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

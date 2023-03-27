@@ -1,17 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useActionData } from "react-router-dom";
-import WeatherContainer from "./WeatherContainer";
-
-function WeatherCard({newCity, info}) {
-    
-
-    const [time, setTime] = useState([])
-
-    const [cityData, setCityData] = useState({
-        
-    })
 
     
+
 
     // const hours = () => {
 
@@ -92,7 +81,7 @@ return (
 
   <div class="card-header">
     <span>{cityData.city}</span>
-    <span>March 13</span>
+    <span>date</span>
   </div>
 
   <span class="temp">{cityData.current_temp_f}</span>

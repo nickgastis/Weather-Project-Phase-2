@@ -1,12 +1,3 @@
-import React from "react";
-import WeatherCard from "./WeatherCard";
-import WeatherContainer from "./WeatherContainer";
-import { useState } from "react";
-
-
-function Home() {
-    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
-    const [clicked, setClicked] = useState([])
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
