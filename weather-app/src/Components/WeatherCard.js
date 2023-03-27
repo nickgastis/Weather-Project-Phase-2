@@ -10,6 +10,8 @@ function WeatherCard({newCity}) {
         
     })
 
+    let date = new Date()
+
     // const hours = () => {
 
     //     const now = new Date().getHours()
@@ -50,10 +52,12 @@ function WeatherCard({newCity}) {
     .then(data => setCityData({
         city: data.location.name, 
         region: data.location.region,
-        temp_c: hours().slice(0, 1).map((hour) => {
+        current_temp_f: data.current.temp_f,
+        current_temp_c: data.current.temp_c,
+        temp_c: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),
-        temp_f: hours().slice(0, 1).map((hour) => {
+        temp_f: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_f
         }),
         feelslike_c: hours().map((hour) => {
@@ -88,10 +92,10 @@ return (
 
   <div class="card-header">
     <span>{cityData.city}</span>
-    <span>March 13</span>
+    <span>date</span>
   </div>
 
-  <span class="temp">{cityData.temp_f}</span>
+  <span class="temp">{cityData.current_temp_f}</span>
 
   <div class="temp-scale">
     <span>°F</span>

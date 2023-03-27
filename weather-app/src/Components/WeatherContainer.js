@@ -12,8 +12,6 @@ function WeatherContainer({cities}) {
 
 return (
 <div className="weather-container">
-    <div className="clicked-card">
-    </div>
 {newCitys}
 </div>
 )

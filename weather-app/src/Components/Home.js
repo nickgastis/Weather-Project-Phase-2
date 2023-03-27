@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 function Home() {
-    const cities = ["dallas", "london", "vancouver", "los angeles", "newyork", "tokyo"]
+    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
 
 
  
