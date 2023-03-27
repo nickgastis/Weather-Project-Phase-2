@@ -1,20 +1,15 @@
 import React from "react";
 import WeatherCard from "./WeatherCard";
 
-function WeatherContainer({cities}) {
-    
+function WeatherContainer({ cityData }) {
+    console.log(cityData)
 
-    const newCitys = cities.map((city, index) => {
-        return <WeatherCard key={index} newCity={city} />
-    })
 
 
 
 return (
 <div className="weather-container">
-    <div className="clicked-card">
-    </div>
-{newCitys}
+    <h1>{cityData.city}</h1>
 </div>
 )
 }

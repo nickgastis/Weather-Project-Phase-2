@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useActionData } from "react-router-dom";
+import WeatherContainer from "./WeatherContainer";
 
-function WeatherCard({newCity}) {
+function WeatherCard({newCity, info}) {
     
 
     const [time, setTime] = useState([])
@@ -9,6 +10,8 @@ function WeatherCard({newCity}) {
     const [cityData, setCityData] = useState({
         
     })
+
+    
 
     // const hours = () => {
 
@@ -50,10 +53,12 @@ function WeatherCard({newCity}) {
     .then(data => setCityData({
         city: data.location.name, 
         region: data.location.region,
-        temp_c: hours().slice(0, 1).map((hour) => {
+        current_temp_f: data.current.temp_f,
+        current_temp_c: data.current.temp_c,
+        temp_c: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),
-        temp_f: hours().slice(0, 1).map((hour) => {
+        temp_f: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_f
         }),
         feelslike_c: hours().map((hour) => {
@@ -68,11 +73,10 @@ function WeatherCard({newCity}) {
     }, [])
 
 
-
 return (
-    <div className="weather-card">
-
-<div class="card">
+    <div className="weather-card" onClick={() => info(cityData)}>
+      
+<div class="card" >
   <div class="container">
     <div class="cloud front">
       <span class="left-front"></span>
@@ -91,7 +95,7 @@ return (
     <span>March 13</span>
   </div>
 
-  <span class="temp">{cityData.temp_f}</span>
+  <span class="temp">{cityData.current_temp_f}</span>
 
   <div class="temp-scale">
     <span>°F</span>
