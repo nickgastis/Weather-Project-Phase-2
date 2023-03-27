@@ -38,9 +38,9 @@ function Home() {
     <div class="box">E</div>
     <div class="box">R</div>
 </div>
+    {toDisplay()}
     <h1 className="popular-cities">Popular Cities</h1>
     
-    {toDisplay()}
     
     <div className="weather-container">
         {newCitys}
