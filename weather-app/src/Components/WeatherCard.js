@@ -50,10 +50,10 @@ function WeatherCard({newCity}) {
     .then(data => setCityData({
         city: data.location.name, 
         region: data.location.region,
-        temp_c: hours().map((hour) => {
+        temp_c: hours().slice(0, 1).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),
-        temp_f: hours().map((hour) => {
+        temp_f: hours().slice(0, 1).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_f
         }),
         feelslike_c: hours().map((hour) => {
@@ -70,8 +70,33 @@ function WeatherCard({newCity}) {
 
 
 return (
-<div className="weather-card">
-    { <h1>{cityData.city}</h1>}
+    <div className="weather-card">
+
+<div class="card">
+  <div class="container">
+    <div class="cloud front">
+      <span class="left-front"></span>
+      <span class="right-front"></span>
+    </div>
+    <span class="sun sunshine"></span>
+    <span class="sun"></span>
+    <div class="cloud back">
+      <span class="left-back"></span>
+      <span class="right-back"></span>
+    </div>
+  </div>
+
+  <div class="card-header">
+    <span>{cityData.city}</span>
+    <span>March 13</span>
+  </div>
+
+  <span class="temp">{cityData.temp_f}</span>
+
+  <div class="temp-scale">
+    <span>°F</span>
+  </div>
+</div>
 </div>
 )
 }
