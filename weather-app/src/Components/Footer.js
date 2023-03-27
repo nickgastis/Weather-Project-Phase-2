@@ -10,16 +10,9 @@ function Footer() {
 
   return (
    <div className="footer">
-        <div class="footer-title">
-    <div class="box">W</div>
-    <div class="box">E</div>
-    <div class="box">A</div>
-    <div class="box">T</div>
-    <div class="box">H</div>
-    <div class="box">E</div>
-    <div class="box">R</div>
-</div>
-        <img src='/images/logo-1.png' className='footer-logo' alt=""></img>
+        <h1 id="footer-title">Weather App</h1>
+        <h2>Created by: Reed, Nick & Jeff</h2>
+        <img src='/images/logo-2.png' className='footer-logo' alt=""></img>
         <div className="footer-nav">
         <Link to={'/'}>
           <button>Home</button>

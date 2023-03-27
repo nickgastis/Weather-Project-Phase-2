@@ -55,6 +55,10 @@ function WeatherCard({newCity, info}) {
         region: data.location.region,
         current_temp_f: data.current.temp_f,
         current_temp_c: data.current.temp_c,
+        current_feel_f: data.current.feelslike_f,
+        current_feel_c: data.current.feelslike_c,
+        current_condition_text: data.current.condition.text,
+        current_condition_icon: data.current.condition.icon,
         temp_c: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),

@@ -5,13 +5,20 @@ import { useState } from "react";
 
 function Home() {
     const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
-    const [clicked, setClicked] = useState([])
-    
+    const [clicked, setClicked] = useState(['no'])
+
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
         return <WeatherContainer cityData={el} />    
     }
     
+    const toDisplay = () => {
+        if (clicked == 'no') {
+            return null 
+        } else {
+            {return displayInfo(clicked)}
+        }
+    }
 
     const newCitys = cities.map((city, index) => {
         return <WeatherCard key={index} newCity={city} info={info}/>
@@ -32,9 +39,9 @@ function Home() {
     <div class="box">R</div>
 </div>
     <h1 className="popular-cities">Popular Cities</h1>
-    {displayInfo(clicked)}
     
-
+    {toDisplay()}
+    
     <div className="weather-container">
         {newCitys}
     </div>
