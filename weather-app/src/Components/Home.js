@@ -1,12 +1,13 @@
-import React from "react";
-import WeatherContainer from "./WeatherContainer";
-import { useState } from "react";
 
+    const info = (el) => {setClicked(el)}
+    const displayInfo = (el) => {
+        return <WeatherContainer cityData={el} />    
+    }
+    
 
-function Home() {
-    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
-
-
+    const newCitys = cities.map((city, index) => {
+        return <WeatherCard key={index} newCity={city} info={info}/>
+    })
  
     
 
@@ -23,7 +24,14 @@ return (
     <div class="box">R</div>
 </div>
     <h1 className="popular-cities">Popular Cities</h1>
-    <WeatherContainer cities={cities}/>
+    {displayInfo(clicked)}
+    
+
+    <div className="weather-container">
+        {newCitys}
+    </div>
+
+   
 </div>
 )
 }

@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useActionData } from "react-router-dom";
 
-function WeatherCard({newCity}) {
     
 
-    const [time, setTime] = useState([])
-
-    const [cityData, setCityData] = useState({
-        
-    })
-
-    let date = new Date()
 
     // const hours = () => {
 
@@ -72,11 +62,10 @@ function WeatherCard({newCity}) {
     }, [])
 
 
-
 return (
-    <div className="weather-card">
-
-<div class="card">
+    <div className="weather-card" onClick={() => info(cityData)}>
+      
+<div class="card" >
   <div class="container">
     <div class="cloud front">
       <span class="left-front"></span>
