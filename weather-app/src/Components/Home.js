@@ -7,9 +7,24 @@ function Home() {
     const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
     const [clicked, setClicked] = useState(['no'])
 
+
+    const addButton = (cityname) => {
+        // e.stopPrapogation()
+        
+        const configOb = {cityname}
+        fetch("http://localhost:3001/saved", {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body:JSON.stringify(configOb)
+        })
+        
+    }
+
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
-        return <WeatherContainer cityData={el} />    
+        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton}/>    
     }
     
     const toDisplay = () => {
