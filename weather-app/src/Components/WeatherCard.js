@@ -8,6 +8,7 @@ function WeatherCard({newCity, info}) {
     const [time, setTime] = useState([])
 
     const [cityData, setCityData] = useState({
+      
 
     })
     
@@ -38,7 +39,7 @@ function WeatherCard({newCity, info}) {
         const now = new Date().getHours()
         const toTime = []
 
-        for ( let i = now; i <= now + 12; i++){
+        for ( let i = now + 1; i < now + 12; i++){
             toTime.push(i > 23 ? i - 23: i)
         }
 
@@ -48,7 +49,7 @@ function WeatherCard({newCity, info}) {
 
 
     useEffect(() => {
-    fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${newCity}&days=1&aqi=no&alerts=no`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${newCity}&days=2&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => setCityData({
         city: data.location.name, 
@@ -59,6 +60,9 @@ function WeatherCard({newCity, info}) {
         current_feel_c: data.current.feelslike_c,
         current_condition_text: data.current.condition.text,
         current_condition_icon: data.current.condition.icon,
+        time: hours().map((hour) => {
+          return data.forecast.forecastday[0].hour[hour].time
+        }),
         temp_c: hours().map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),
