@@ -4,14 +4,15 @@ import  uuid  from 'react-uuid';
 import { Children } from "react";
 
 function WeatherContainer({ cityData }) {
-    console.log(cityData.time) 
+    console.log(cityData.forecast_condition_icon) 
+    
 
     const localtime = parseInt(cityData.time[0].slice(11, 13)) - 1
     // [cityData.temp_f[i], cityData.feelslike_f[i]]
     const hourMerger = () => {
         const mergedHours = []
         for (let i = 0; i < 11; i++){
-            mergedHours.push([cityData.temp_f[i], cityData.feelslike_f[i], cityData.time[i].slice(11, 13)])
+            mergedHours.push([cityData.temp_f[i], cityData.time[i].slice(11, 13), cityData.forecast_condition_icon[i]])
         }
         return mergedHours
     }
@@ -19,9 +20,9 @@ function WeatherContainer({ cityData }) {
 
     const tempMapped = hourMerger().map((hourlyData) => {
         return <div className="box" key={uuid()}>
-                <h1 style={{fontSize: 15}} >{hourlyData[0]}</h1>
-                <h1 style={{fontSize: 10}} >{hourlyData[1]}</h1>
-                <h1 style={{fontSize: 12}} >{hourlyData[2]}</h1>
+                <img className='icon-hour'src={hourlyData[2]}></img>
+                <h1 className='temp-hour'style={{fontSize: 10}} >{hourlyData[0]}°</h1>
+                <h1 className='hour' style={{fontSize: 10}} >{hourlyData[1]}:00</h1>
             </div>
     })
 
@@ -29,7 +30,7 @@ function WeatherContainer({ cityData }) {
 return (
 <div className="weather-container-card">
   <div className="current-weather">
-    <h1>{cityData.city}</h1>
+    <h1 className="city">{cityData.city}</h1>
     <button className="Save">Save</button>
     <img className='emoji' src={cityData.current_condition_icon}></img>
     <h2 className='temperature'>{cityData.current_temp_f} F°</h2>
@@ -39,9 +40,9 @@ return (
   
   <div className="forcast-weather">
     <div className="box">
-        <h1 style={{fontSize: 15}}>{cityData.current_temp_f}</h1>
-        <h1 style={{fontSize: 10}} >{cityData.current_feel_f}</h1>
-        <h1 style={{fontSize: 15}} >{localtime}</h1>
+        <img className="icon-hour" src={cityData.current_condition_icon}></img>
+        <h1 className='temp-hour'style={{fontSize: 10}}>{cityData.current_temp_f}°</h1>
+        <h1 style={{fontSize: 10}} >Now</h1>
     </div>
 
     {tempMapped}

@@ -35,8 +35,8 @@ function WeatherCard({newCity, info}) {
     //     return toTime.sort()
     //     }
 
-    const hours = () => {
-        const now = new Date().getHours()
+    const hours = (localtime) => {
+        const now = parseInt(localtime.slice(11, 13))
         const toTime = []
 
         for ( let i = now + 1; i < now + 12; i++){
@@ -60,20 +60,25 @@ function WeatherCard({newCity, info}) {
         current_feel_c: data.current.feelslike_c,
         current_condition_text: data.current.condition.text,
         current_condition_icon: data.current.condition.icon,
-        time: hours().map((hour) => {
+        
+        time: hours(data.location.localtime).map((hour) => {
           return data.forecast.forecastday[0].hour[hour].time
         }),
-        temp_c: hours().map((hour) => {
+        temp_c: hours(data.location.localtime).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_c
         }),
-        temp_f: hours().map((hour) => {
+        temp_f: hours(data.location.localtime).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].temp_f
         }),
-        feelslike_c: hours().map((hour) => {
+        feelslike_c: hours(data.location.localtime).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].feelslike_c
         }),
-        feelslike_f: hours().map((hour) => {
+        feelslike_f: hours(data.location.localtime).map((hour) => {
             return data.forecast.forecastday[0].hour[hour].feelslike_f
+            
+        }),
+        forecast_condition_icon: hours(data.location.localtime).map((hour) => {
+          return data.forecast.forecastday[0].hour[hour].condition.icon
         })
     
     }) ) 

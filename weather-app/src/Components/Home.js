@@ -39,6 +39,7 @@ function Home() {
     <div class="box">R</div>
 </div>
     {toDisplay()}
+    
     <h1 className="popular-cities">Popular Cities</h1>
     
     
