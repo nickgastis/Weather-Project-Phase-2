@@ -12,9 +12,10 @@ function App() {
   const [savedCities, setSavedCities] = useState([])
 
   
-  const removeCity = (clicked) => {
-    const filteredCities = savedCities.filter((city) => city.city !== clicked.city);
-            setSavedCities(filteredCities);
+  const removeCity = (el) => {
+    const filteredCities = savedCities.filter((city) => {
+      return city !== el });
+      setSavedCities(filteredCities);
   }
   
 
@@ -42,7 +43,7 @@ function App() {
       <Header />
       <Routes>
         <Route path={'/'} element={<Home savedCities={savedCities}/>} />
-        <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities}/>} />
+        <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities} removeCity={removeCity}/>} />
         <Route path={'/search'} element={<Search />} />
       </Routes>
       <Footer />

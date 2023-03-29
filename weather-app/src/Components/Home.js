@@ -40,8 +40,8 @@ function Home({savedCities}) {
         }
     }
 
-    const newCitys = cities.map((city, index) => {
-        return <WeatherCard key={index} newCity={city} info={info}/>
+    const newCitys = cities.map((city) => {
+        return <WeatherCard key={city} newCity={city} info={info}/>
     })
  
     

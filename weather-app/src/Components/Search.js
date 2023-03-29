@@ -4,7 +4,7 @@ import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
 
 function Search({savedCities}) {
-    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo", "paris", "brisbane"]
+    const cities = ['dallas', "london", "vancouver", "los angeles", "new york", "tokyo", "paris"]
     const [clicked, setClicked] = useState(['no'])
    
 
@@ -57,15 +57,19 @@ function Search({savedCities}) {
     <div class="box">H</div>
     <div class="box">E</div>
     <div class="box">R</div>
-</div>
-     <h1 className="popular-cities">Search Cities</h1>
-    
-     <form action="" class="search-bar">
-  <input type="search" name="search" pattern=".*\S.*" required></input>
-  <button class="search-btn" type="submit">
-    <span>Search</span>
-  </button>
+
+    </div>
+        <h1 className="popular-cities">Search Cities</h1>
+<form className='search-bar'>
+    <div class="form__group field">
+     <input required="" placeholder="Name" class="form__field" type="input"></input>
+     <label class="form__label" for="name">Search</label>
+    </div>
 </form>
+
+<div className="weather-container">
+        {newCitys}
+    </div>
 </div>
 )
  }
