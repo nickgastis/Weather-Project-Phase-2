@@ -141,6 +141,16 @@
   font-size: 40px;
 }
 
+.your-cities {
+  text-align: center;
+  padding-top: 20px;
+  color: #3ba7ff;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 4px;
+  font-weight: 100;
+  font-size: 40px;
+}
+
 button {
   font-size: 18px;
   letter-spacing: 2px;

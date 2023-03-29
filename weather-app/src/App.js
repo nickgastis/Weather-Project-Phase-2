@@ -5,10 +5,13 @@ import './App.css';
 import Home from './Components/Home';
 import SaveList from './Components/SaveList';
 import Search from './Components/Search';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 //  process.env.REACT_APP_WEATHER_API_KEY
 function App() {
+  const [savedCities, setSavedCities] = useState([])
+
+  
   
 
   useEffect(() => {
@@ -34,8 +37,8 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path={'/'} element={<Home />} />
-        <Route path={'/saveList'} element={<SaveList />} />
+        <Route path={'/'} element={<Home savedCities={savedCities}/>} />
+        <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities}/>} />
         <Route path={'/search'} element={<Search />} />
       </Routes>
       <Footer />

@@ -3,14 +3,15 @@ import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
 
-function Home() {
-    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo"]
+function Home({savedCities}) {
+    const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo", "paris", "brisbane"]
     const [clicked, setClicked] = useState(['no'])
+   
 
 
     const addButton = (cityname) => {
-        // e.stopPrapogation()
-        
+       const stopDuplicate = savedCities.includes(cityname)
+       if(!stopDuplicate) {
         const configOb = {cityname}
         fetch("http://localhost:3001/saved", {
             method: "POST",
@@ -18,9 +19,9 @@ function Home() {
                 'Content-Type': "application/json"
             },
             body:JSON.stringify(configOb)
-        })
-        
+        })}
     }
+    
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {

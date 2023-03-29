@@ -3,26 +3,27 @@ import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 
 
-function SaveList() {
-    const [cities, setCities] = useState([])
+function SaveList({savedCities, setSavedCities}) {
+    
     const [clicked, setClicked] = useState(['no'])
 
+  
 
     useEffect(() => {
         fetch("http://localhost:3001/saved")
         .then(response => response.json())
-        .then(data => setCities(data.map((city) => {
+        .then(data => setSavedCities(data.map((city) => {
             return city.cityname
         })))
     }, [])
-    console.log(cities)
-
+    
+    console.log(clicked)
+    
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
+        
         return <WeatherContainer cityData={el} />    
     }
-    
-
 
 
     const toDisplay = () => {
@@ -33,7 +34,7 @@ function SaveList() {
         }
     }
 
-    const newCitys = cities.map((city, index) => {
+    const newCitys = savedCities.map((city, index) => {
         return <WeatherCard key={index} newCity={city} info={info}/>
     })
  
@@ -53,7 +54,7 @@ function SaveList() {
 </div>
     {toDisplay()}
     
-    <h1 className="popular-cities">Popular Cities</h1>
+    <h1 className="your-cities">Your Cities</h1>
     
     
     <div className="weather-container">

@@ -1,24 +1,16 @@
 {
   "saved": [
     {
-      "id": 1,
-      "cityname": "new york"
+      "cityname": "Vancouver",
+      "id": 1
     },
     {
-      "cityname": "Vancouver",
+      "cityname": "London",
       "id": 2
     },
     {
-      "cityname": "Los Angeles",
-      "id": 3
-    },
-    {
       "cityname": "Tokyo",
-      "id": 4
-    },
-    {
-      "cityname": "New York",
-      "id": 5
+      "id": 3
     }
   ]
 }
