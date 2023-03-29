@@ -4,6 +4,7 @@ import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
 
 function Search({savedCities}) {
+    const [citySearch, setCitySearch] = useState([])
     const cities = ['dallas', "london", "vancouver", "los angeles", "new york", "tokyo", "paris"]
     const [clicked, setClicked] = useState(['no'])
    
@@ -40,11 +41,17 @@ function Search({savedCities}) {
         }
     }
 
-    const newCitys = cities.map((city, index) => {
-        return <WeatherCard key={index} newCity={city} info={info}/>
-    })
+    // const newCitys = citySearch.map((city, index) => {
+    //     return <WeatherCard key={index} newCity={city} info={info}/>
+    // })
  
-    
+    const handleSearch = (e) => {
+        e.preventDefault()
+        
+        setCitySearch(citySearch.concat(<WeatherCard  newCity={e.target.elements[0].value} info={info} />))
+
+        e.target.reset()
+    }
 
 
     return (
@@ -60,15 +67,15 @@ function Search({savedCities}) {
 
     </div>
         <h1 className="popular-cities">Search Cities</h1>
-<form className='search-bar'>
+<form className='search-bar' onSubmit={(e) => {handleSearch(e)}}>
     <div class="form__group field">
-     <input required="" placeholder="Name" class="form__field" type="input"></input>
+     <input required="" placeholder="Name" class="form__field" type="text"></input>
      <label class="form__label" for="name">Search</label>
     </div>
 </form>
-
+        {toDisplay()}
 <div className="weather-container">
-        {newCitys}
+        {citySearch}
     </div>
 </div>
 )
