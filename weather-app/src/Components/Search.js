@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Search({savedCities}) {
     const [citySearch, setCitySearch] = useState([])
-    const cities = ['dallas', "london", "vancouver", "los angeles", "new york", "tokyo", "paris"]
+    // const cities = ['dallas', "london", "vancouver", "los angeles", "new york", "tokyo", "paris"]
     const [clicked, setClicked] = useState(['no'])
    
 
@@ -26,6 +26,7 @@ function Search({savedCities}) {
             body:JSON.stringify(configOb)
         })}
     }
+    
     
 
     const info = (el) => {setClicked(el)}
@@ -52,6 +53,8 @@ function Search({savedCities}) {
 
         e.target.reset()
     }
+
+    
 
 
     return (

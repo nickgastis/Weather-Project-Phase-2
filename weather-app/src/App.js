@@ -44,7 +44,7 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Home savedCities={savedCities}/>} />
         <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities} removeCity={removeCity}/>} />
-        <Route path={'/search'} element={<Search />} />
+        <Route path={'/search'} element={<Search savedCities={savedCities}/>} />
       </Routes>
       <Footer />
     </div>

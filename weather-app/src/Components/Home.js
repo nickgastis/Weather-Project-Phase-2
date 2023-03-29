@@ -29,7 +29,9 @@ function Home({savedCities}) {
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
-        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities}/>    
+        const container = <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities}/>;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return container;
     }
     
     const toDisplay = () => {

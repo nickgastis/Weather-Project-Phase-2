@@ -52,7 +52,8 @@ function WeatherCard({newCity, info}) {
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${newCity}&days=2&aqi=no&alerts=no`)
     .then(response => response.json())
     .then(data => setCityData({
-        city: data.location.name, 
+        city: data.location.name,
+        current_time: data.location.localtime.slice(11, 16), 
         region: data.location.region,
         current_temp_f: data.current.temp_f,
         current_temp_c: data.current.temp_c,
@@ -105,7 +106,7 @@ return (
 
   <div class="card-header">
     <span>{cityData.city}</span>
-    <span>date</span>
+    <span>Time: {cityData.current_time}</span>
   </div>
 
   <span class="temp">{cityData.current_temp_f}</span>

@@ -3,6 +3,14 @@
     {
       "cityname": "Vancouver",
       "id": "Vancouver"
+    },
+    {
+      "cityname": "London",
+      "id": "London"
+    },
+    {
+      "cityname": "Los Angeles",
+      "id": "Los Angeles"
     }
   ]
 }
