@@ -10,9 +10,12 @@ function Home({savedCities}) {
 
 
     const addButton = (cityname) => {
-       const stopDuplicate = savedCities.includes(cityname)
+
+       const stopDuplicate = savedCities.includes(cityname.city)
        if(!stopDuplicate) {
-        const configOb = {cityname}
+        const configOb = {
+            cityname: cityname.city
+        }
         fetch("http://localhost:3001/saved", {
             method: "POST",
             headers: {

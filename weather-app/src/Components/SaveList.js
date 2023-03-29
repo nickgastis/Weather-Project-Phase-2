@@ -18,11 +18,23 @@ function SaveList({savedCities, setSavedCities}) {
     }, [])
     
     console.log(clicked)
+
+    const deleteButton = (clicked) => {
+        console.log(clicked.city)
+        fetch(`http://localhost:3001/saved/${clicked.city}`, {
+            method: 'DELETE'
+        })
+        
+        .then(() => {
+            const filterCity = savedCities.filter((city) => city.city !== clicked.city)
+            setSavedCities(filterCity)
+        })
+    }
     
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
         
-        return <WeatherContainer cityData={el} />    
+        return <WeatherContainer cityData={el} handleButton={deleteButton}/>    
     }
 
 
