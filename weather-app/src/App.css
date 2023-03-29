@@ -137,21 +137,32 @@
   color: #3ba7ff;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 4px;
-  font-weight: 100;
+  font-weight: bold;
   font-size: 40px;
+  position: relative;
 }
 
-.your-cities {
-  text-align: center;
-  padding-top: 20px;
-  color: #3ba7ff;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 4px;
-  font-weight: 100;
-  font-size: 40px;
+.popular-cities::before,
+.popular-cities::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  height: 2px;
+  background-color: #3ba7ff;
+  width: 50%;
+  max-width: 10%;
 }
 
-button {
+.popular-cities::before {
+  left: 20%;
+}
+
+.popular-cities::after {
+  right: 20%;
+}
+
+
+.button-main {
   font-size: 18px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -170,7 +181,7 @@ button {
   border-radius: 20px;
 }
 
-button:before {
+.button-main:before {
   transition: 0.5s all ease;
   position: absolute;
   top: 0;
@@ -184,18 +195,18 @@ button:before {
   border-radius: 16px;
 }
 
-button:hover, button:focus {
+.button-main:hover, button:focus {
   color: white;
 }
 
-button:hover:before, button:focus:before {
+.button-main:hover:before, button:focus:before {
   transition: 0.5s all ease;
   left: 0;
   right: 0;
   opacity: 1;
 }
 
-button:active {
+.button-main:active {
   transform: scale(0.9);
 }
 
@@ -617,6 +628,6 @@ h1 {
   text-align: center;
 }
 
-
+/* SEARCH BAR */
 
 

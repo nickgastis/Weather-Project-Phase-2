@@ -15,13 +15,13 @@ function Footer() {
         <img src='/images/logo-2.png' className='footer-logo' alt=""></img>
         <div className="footer-nav">
         <Link to={'/'}>
-          <button>Home</button>
+          <button className="button-main">Home</button>
         </Link>
         <Link to={'/SaveList'}>
-        <button>Save List</button>
+        <button className="button-main">Save List</button>
         </Link>
         <Link to={'/Search'}>
-        <button>Search</button>
+        <button className="button-main">Search</button>
         </Link>
         </div>
         <h3 id="copyright">© 2023 Weather App</h3>

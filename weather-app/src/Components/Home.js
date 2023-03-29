@@ -14,7 +14,8 @@ function Home({savedCities}) {
        const stopDuplicate = savedCities.includes(cityname.city)
        if(!stopDuplicate) {
         const configOb = {
-            cityname: cityname.city
+            cityname: cityname.city,
+            id: cityname.city
         }
         fetch("http://localhost:3001/saved", {
             method: "POST",
@@ -28,7 +29,7 @@ function Home({savedCities}) {
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
-        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton}/>    
+        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities}/>    
     }
     
     const toDisplay = () => {

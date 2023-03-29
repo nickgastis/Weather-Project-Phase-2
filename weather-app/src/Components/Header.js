@@ -35,13 +35,13 @@ function Header() {
       </a>
       <div className="menu">
         <Link to={'/'}>
-          <button>Home</button>
+          <button className="button-main">Home</button>
         </Link>
         <Link to={'/SaveList'}>
-        <button>Save List</button>
+        <button className="button-main">Save List</button>
         </Link>
         <Link to={'/Search'}>
-        <button>Search</button>
+        <button className="button-main">Search</button>
         </Link>
       </div>
     </div>

@@ -12,6 +12,10 @@ function App() {
   const [savedCities, setSavedCities] = useState([])
 
   
+  const removeCity = (clicked) => {
+    const filteredCities = savedCities.filter((city) => city.city !== clicked.city);
+            setSavedCities(filteredCities);
+  }
   
 
   useEffect(() => {

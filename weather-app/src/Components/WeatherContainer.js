@@ -3,7 +3,7 @@ import WeatherCard from "./WeatherCard";
 import  uuid  from 'react-uuid';
 import { Children } from "react";
 
-function WeatherContainer({ cityData, isHome, handleButton }) {
+function WeatherContainer({ cityData, isHome, handleButton}) {
     
     
 
@@ -31,7 +31,7 @@ return (
 <div className="weather-container-card">
   <div className="current-weather">
     <h1 className="city">{cityData.city}</h1>
-    <button className="Save" onClick={() => (handleButton(cityData))} >{isHome ? "save": "remove"}</button>
+    <button className="button-main card-button" onClick={() => (handleButton(cityData))} >{isHome ? "save": "remove"}</button>
     <img className='emoji' src={cityData.current_condition_icon}></img>
     <h2 className='temperature'>{cityData.current_temp_f} F°</h2>
     <h3 className="condition">Condition: {cityData.current_condition_text}</h3>
