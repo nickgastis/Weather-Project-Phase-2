@@ -49,10 +49,16 @@ function Search({savedCities, isFahrenheit}) {
  
     const handleSearch = (e) => {
         e.preventDefault()
-        setCitySearch(citySearch.concat(<WeatherCard  newCity={e.target.elements[0].value} info={info} isFahrenheit={isFahrenheit}/>))
-
+        const newCityName = e.target.elements[0].value.trim()
+        
+        if (newCityName === '') {
+          // If the city name is empty, do not add the card
+          return
+        }
+      
+        setCitySearch(citySearch.concat(<WeatherCard  newCity={newCityName} info={info} isFahrenheit={isFahrenheit}/>))
         e.target.reset()
-    }
+      }
 
     
 
