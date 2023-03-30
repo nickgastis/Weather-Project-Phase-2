@@ -3,7 +3,7 @@ import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
 
-function Search({savedCities}) {
+function Search({savedCities, isFahrenheit}) {
     const [citySearch, setCitySearch] = useState([])
     // const cities = ['dallas', "london", "vancouver", "los angeles", "new york", "tokyo", "paris"]
     const [clicked, setClicked] = useState(['no'])
@@ -31,7 +31,7 @@ function Search({savedCities}) {
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
-        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities}/>    
+        return <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities} isFahrenheit={isFahrenheit}/>    
     }
     
     const toDisplay = () => {
@@ -49,7 +49,7 @@ function Search({savedCities}) {
     const handleSearch = (e) => {
         e.preventDefault()
         
-        setCitySearch(citySearch.concat(<WeatherCard  newCity={e.target.elements[0].value} info={info} />))
+        setCitySearch(citySearch.concat(<WeatherCard  newCity={e.target.elements[0].value} info={info} isFahrenheit={isFahrenheit}/>))
 
         e.target.reset()
     }

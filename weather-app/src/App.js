@@ -10,6 +10,13 @@ import { useEffect, useState } from 'react';
 //  process.env.REACT_APP_WEATHER_API_KEY
 function App() {
   const [savedCities, setSavedCities] = useState([])
+  
+  const [isFahrenheit, setIsFahrenheit] = useState(true);
+  
+
+  const handleToggle = () => {
+    setIsFahrenheit(!isFahrenheit);
+  }
 
   
   const removeCity = (el) => {
@@ -40,11 +47,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header handleToggle={handleToggle}/>
       <Routes>
-        <Route path={'/'} element={<Home savedCities={savedCities}/>} />
-        <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities} removeCity={removeCity}/>} />
-        <Route path={'/search'} element={<Search savedCities={savedCities}/>} />
+        <Route path={'/'} element={<Home savedCities={savedCities} isFahrenheit={isFahrenheit}/>} />
+        <Route path={'/saveList'} element={<SaveList savedCities={savedCities} setSavedCities={setSavedCities} removeCity={removeCity} isFahrenheit={isFahrenheit}/>} />
+        <Route path={'/search'} element={<Search savedCities={savedCities} isFahrenheit={isFahrenheit}/>} />
       </Routes>
       <Footer />
     </div>

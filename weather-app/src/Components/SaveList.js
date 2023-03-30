@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 
-function SaveList({ savedCities, setSavedCities, removeCity}) {
+function SaveList({ savedCities, setSavedCities, removeCity, isFahrenheit}) {
   const [clicked, setClicked] = useState({});
  
   useEffect(() => {
@@ -16,20 +16,24 @@ function SaveList({ savedCities, setSavedCities, removeCity}) {
   }, []);
 
 
+const deleteButton = (clicked) => {
+  fetch(`http://localhost:3001/saved/${clicked.city}`, {
+    method: 'DELETE'
+  })
+  removeCity(clicked.city)
+}
 
-  const deleteButton = (clicked) => {
-    fetch(`http://localhost:3001/saved/${clicked.city}`, {
-      method: 'DELETE'
-    })
-    removeCity(clicked.city)
-  }
+const info = (el) => {
+  setClicked(el);
+  displayInfo(el);
+};
 
-  const info = (el) => {
-    setClicked(el);
-  };
-  const displayInfo = (el) => {
-    return <WeatherContainer cityData={el} handleButton={deleteButton} />;
-  };
+const displayInfo = (el) => {
+  const container = <WeatherContainer cityData={el} handleButton={deleteButton} isFahrenheit={isFahrenheit}/>;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return container;
+};
+
 
   const toDisplay = () => {
     if (clicked.city === undefined) {
@@ -40,7 +44,7 @@ function SaveList({ savedCities, setSavedCities, removeCity}) {
   };
 
     const newCitys = savedCities.map((city) => {
-        return <WeatherCard key={city} newCity={city} info={info}/>
+        return <WeatherCard key={city} newCity={city} info={info} isFahrenheit={isFahrenheit}/>
     })
  
     

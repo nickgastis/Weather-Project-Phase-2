@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useActionData } from "react-router-dom";
 import WeatherContainer from "./WeatherContainer";
 
-function WeatherCard({newCity, info}) {
+function WeatherCard({newCity, info, isFahrenheit}) {
+  
 
 
     const [time, setTime] = useState([])
@@ -109,10 +110,10 @@ return (
     <span>Time: {cityData.current_time}</span>
   </div>
 
-  <span class="temp">{cityData.current_temp_f}</span>
+  <span class="temp">{isFahrenheit ? cityData.current_temp_f : cityData.current_temp_c}</span>
 
   <div class="temp-scale">
-    <span>°F</span>
+    <span>{isFahrenheit ? 'F°' : 'C°'}</span>
   </div>
 </div>
 </div>

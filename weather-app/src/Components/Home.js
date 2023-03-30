@@ -3,9 +3,10 @@ import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
 
-function Home({savedCities}) {
+function Home({savedCities, isFahrenheit}) {
     const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo", "paris", "brisbane"]
     const [clicked, setClicked] = useState(['no'])
+    
    
 
 
@@ -29,7 +30,7 @@ function Home({savedCities}) {
 
     const info = (el) => {setClicked(el)}
     const displayInfo = (el) => {
-        const container = <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities}/>;
+        const container = <WeatherContainer cityData={el} isHome={true} handleButton={addButton} savedCities={savedCities} isFahrenheit={isFahrenheit}/>;
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return container;
     }
@@ -43,7 +44,7 @@ function Home({savedCities}) {
     }
 
     const newCitys = cities.map((city) => {
-        return <WeatherCard key={city} newCity={city} info={info}/>
+        return <WeatherCard key={city} newCity={city} info={info} isFahrenheit={isFahrenheit}/>
     })
  
     

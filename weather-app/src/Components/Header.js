@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-function Header() {
+function Header({handleToggle}) {
   const [hidden, setHidden] = useState(false);
+
+
 
   //On scroll Dissapear
   const handleScroll = () => {
@@ -43,7 +45,13 @@ function Header() {
         <Link to={'/Search'}>
         <button className="button-main">Search</button>
         </Link>
+       
+
       </div>
+    <label class="toggle-button" for="toggle">
+        <input id="toggle" type="checkbox" onClick={handleToggle}></input>
+        <span class="slider"></span>
+    </label>
     </div>
   );
 }

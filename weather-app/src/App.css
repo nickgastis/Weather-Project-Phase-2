@@ -26,7 +26,7 @@
 
 .menu {
   margin: auto;
-  padding-right: 70px;
+  
 }
 
 .header .menu {
@@ -712,3 +712,53 @@ h1 {
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
+
+
+
+.toggle-button {
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 20px;
+  box-shadow: 0 0 8px 5px rgba(252, 252, 252, 0.5);
+  
+ }
+ 
+ #toggle {
+  display: none;
+ }
+ 
+ .slider {
+  display: block;
+  font-size: 10px;
+  position: relative;
+ }
+ 
+ .slider::after {
+  content: 'F°';
+  width: 25px;
+  height: 25px;
+  background-color: #42b3ec;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+  position: absolute;
+  top: -5px;
+  left: 0;
+  display: grid;
+  place-content: center;
+  line-height: 0;
+  transition: background-color .25s, transform .25s ease-in;
+  box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+ }
+ 
+ #toggle:checked + .slider::after {
+  content: 'C°';
+  background-color: #00dcf5;
+  transform: translateX(25px) rotate(360deg);
+  box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+ }
