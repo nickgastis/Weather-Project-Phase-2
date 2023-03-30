@@ -7,7 +7,7 @@ function WeatherContainer({ cityData, isHome, handleButton, isFahrenheit}) {
     
     
 
-    const localtime = parseInt(cityData.time[0].slice(11, 13)) - 1
+    // const localtime = parseInt(cityData.time[0].slice(11, 13)) - 1
     // [cityData.temp_f[i], cityData.feelslike_f[i]]
     const hourMerger = () => {
         const mergedHours = []
@@ -16,13 +16,20 @@ function WeatherContainer({ cityData, isHome, handleButton, isFahrenheit}) {
         }
         return mergedHours
     }
-    console.log(localtime)
+    // console.log(localtime)
+    const timeConverter = (el) => {
+      if (el <= 12 && el !== 0){
+        return ` ${el} am`
+      } else if (el > 12){
+        return `${el - 12} pm `
+      } else {return `12 am`}
+    }
 
     const tempMapped = hourMerger().map((hourlyData) => {
         return <div className="box" key={uuid()}>
                 <img className='icon-hour'src={hourlyData[2]}></img>
                 <h1 className='temp-hour'style={{fontSize: 10}} >{hourlyData[0]}°</h1>
-                <h1 className='hour' style={{fontSize: 10}} >{hourlyData[1]}:00</h1>
+                <h1 className='hour' style={{fontSize: 10}} >{timeConverter(hourlyData[1])}</h1>
             </div>
     })
 

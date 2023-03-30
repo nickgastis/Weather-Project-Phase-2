@@ -36,12 +36,22 @@ function WeatherCard({newCity, info, isFahrenheit}) {
     //     return toTime.sort()
     //     }
 
+    const timeConverter = (el) => {
+      if (el <= 12 && el !== 0){
+        return ` ${el} am`
+      } else if (el > 12){
+        return `${el - 12} pm `
+      } else {return `12 am`}
+    }
+
+
+
     const hours = (localtime) => {
         const now = parseInt(localtime.slice(11, 13))
         const toTime = []
-
+      
         for ( let i = now + 1; i < now + 12; i++){
-            toTime.push(i > 23 ? i - 23: i)
+            toTime.push((i > 23 ? i - 23: i))
         }
 
         return toTime
@@ -54,7 +64,7 @@ function WeatherCard({newCity, info, isFahrenheit}) {
     .then(response => response.json())
     .then(data => setCityData({
         city: data.location.name,
-        current_time: data.location.localtime.slice(11, 16), 
+        current_time: data.location.localtime.slice(11, 13), 
         region: data.location.region,
         current_temp_f: data.current.temp_f,
         current_temp_c: data.current.temp_c,
@@ -86,7 +96,7 @@ function WeatherCard({newCity, info, isFahrenheit}) {
     }) ) 
     
     }, [])
-
+    
 
 return (
     <div className="weather-card" onClick={() => info(cityData)}>
@@ -107,7 +117,7 @@ return (
 
   <div class="card-header">
     <span>{cityData.city}</span>
-    <span>Time: {cityData.current_time}</span>
+    <span>Time: {timeConverter(cityData.current_time)}</span>
   </div>
 
   <span class="temp">{isFahrenheit ? cityData.current_temp_f : cityData.current_temp_c}</span>

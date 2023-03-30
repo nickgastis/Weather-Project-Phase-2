@@ -21,6 +21,7 @@ const deleteButton = (clicked) => {
     method: 'DELETE'
   })
   removeCity(clicked.city)
+  setClicked({})
 }
 
 const info = (el) => {
