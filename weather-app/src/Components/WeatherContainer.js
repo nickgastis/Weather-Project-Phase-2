@@ -12,7 +12,7 @@ function WeatherContainer({ cityData, isHome, handleButton, isFahrenheit}) {
     const hourMerger = () => {
         const mergedHours = []
         for (let i = 0; i < 11; i++){
-            mergedHours.push([cityData.temp_f[i], cityData.time[i].slice(11, 13), cityData.forecast_condition_icon[i]])
+            mergedHours.push([isFahrenheit ? cityData.temp_f[i] : cityData.temp_c[i], cityData.time[i].slice(11, 13), cityData.forecast_condition_icon[i]])
         }
         return mergedHours
     }
@@ -28,8 +28,8 @@ function WeatherContainer({ cityData, isHome, handleButton, isFahrenheit}) {
     const tempMapped = hourMerger().map((hourlyData) => {
         return <div className="box" key={uuid()}>
                 <img className='icon-hour'src={hourlyData[2]}></img>
-                <h1 className='temp-hour'style={{fontSize: 10}} >{hourlyData[0]}°</h1>
-                <h1 className='hour' style={{fontSize: 10}} >{timeConverter(hourlyData[1])}</h1>
+                <h1 className='temp-hour'style={{fontSize: 13}} >{hourlyData[0]}°</h1>
+                <h1 className='hour' style={{fontSize: 13}} >{timeConverter(hourlyData[1])}</h1>
             </div>
     })
 
@@ -48,8 +48,8 @@ return (
   <div className="forcast-weather">
     <div className="box">
         <img className="icon-hour" src={cityData.current_condition_icon}></img>
-        <h1 className='temp-hour'style={{fontSize: 10}}>{cityData.current_temp_f}°</h1>
-        <h1 style={{fontSize: 10}} >Now</h1>
+        <h1 className='temp-hour'style={{fontSize: 13}}>{cityData.current_temp_f}°</h1>
+        <h1 style={{fontSize: 13}} >Now</h1>
     </div>
 
     {tempMapped}

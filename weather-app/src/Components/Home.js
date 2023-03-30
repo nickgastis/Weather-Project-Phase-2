@@ -2,6 +2,7 @@ import React from "react";
 import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
+import {motion} from 'framer-motion'
 
 function Home({savedCities, isFahrenheit}) {
     const cities = ["dallas", "london", "vancouver", "los angeles", "new york", "tokyo", "paris", "brisbane"]
@@ -51,7 +52,12 @@ function Home({savedCities, isFahrenheit}) {
 
 
     return (
-<div className="home">
+<motion.div className="home"
+    initial={{x: 0, opacity: 0}}
+    animate={{x: 0, opacity: 1, transition: {duration: 0.6}}}
+    
+
+>
 <div class="title">
     <div class="box">W</div>
     <div class="box">E</div>
@@ -71,7 +77,7 @@ function Home({savedCities, isFahrenheit}) {
     </div>
 
    
-</div>
+</motion.div>
 )
     }
 

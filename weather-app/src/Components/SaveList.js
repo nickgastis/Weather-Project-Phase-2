@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
+import {motion} from 'framer-motion'
 
 function SaveList({ savedCities, setSavedCities, removeCity, isFahrenheit}) {
   const [clicked, setClicked] = useState({});
@@ -52,16 +53,22 @@ const displayInfo = (el) => {
 
 
     return (
-<div className="home">
-<div class="title">
-    <div class="box">W</div>
-    <div class="box">E</div>
-    <div class="box">A</div>
-    <div class="box">T</div>
-    <div class="box">H</div>
-    <div class="box">E</div>
-    <div class="box">R</div>
-</div>
+<motion.div className="SaveList"
+
+    initial={{x: 0, opacity: 0}}
+    animate={{x: 0, opacity: 1, transition: {duration: 0.6}}}
+    
+>
+
+    <div class="title">
+      <div class="box">W</div>
+      <div class="box">E</div>
+      <div class="box">A</div>
+      <div class="box">T</div>
+      <div class="box">H</div>
+      <div class="box">E</div>
+      <div class="box">R</div>
+    </div>
     {toDisplay()}
     
     <h1 className="popular-cities">Your Cities</h1>
@@ -72,7 +79,7 @@ const displayInfo = (el) => {
     </div>
 
    
-</div>
+</motion.div>
 )
     }
 

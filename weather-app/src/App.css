@@ -8,6 +8,7 @@
   margin-top: 120px;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .header-logo{
@@ -39,6 +40,9 @@
   gap: 30px;
 }
 
+.toggle-div {
+  margin-right: 20px;
+}
 
 .box {
   width: 65px;
@@ -627,9 +631,6 @@ h1 {
   font-size: 15px;
   text-align: center;
 }
-
-
-
 
 
 .card-button{

@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Header({handleToggle}) {
+
+  const {user} = useAuth0();
+
   const [hidden, setHidden] = useState(false);
 
-
+  // if(!user) {
+  //   return {
+      
+  //   }
+  // }
+ 
 
   //On scroll Dissapear
   const handleScroll = () => {
@@ -46,12 +57,20 @@ function Header({handleToggle}) {
         <button className="button-main">Search</button>
         </Link>
        
-
       </div>
-    <label class="toggle-button" for="toggle">
-        <input id="toggle" type="checkbox" onClick={handleToggle}></input>
-        <span class="slider"></span>
-    </label>
+      
+      <div className="toggle-div">
+
+        <label class="toggle-button" for="toggle">
+            <input id="toggle" type="checkbox" onClick={handleToggle}></input>
+            <span class="slider"></span>
+        </label>
+
+        <LoginButton />
+        <LogoutButton />
+      </div>
+
+
     </div>
   );
 }

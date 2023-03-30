@@ -117,7 +117,7 @@ return (
 
   <div class="card-header">
     <span>{cityData.city}</span>
-    <span>Time: {timeConverter(cityData.current_time)}</span>
+    <span>{timeConverter(cityData.current_time)}</span>
   </div>
 
   <span class="temp">{isFahrenheit ? cityData.current_temp_f : cityData.current_temp_c}</span>

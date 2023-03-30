@@ -2,6 +2,7 @@ import React from "react";
 import WeatherCard from "./WeatherCard";
 import WeatherContainer from "./WeatherContainer";
 import { useState } from "react";
+import {motion} from 'framer-motion'
 
 function Search({savedCities, isFahrenheit}) {
     const [citySearch, setCitySearch] = useState([])
@@ -48,7 +49,6 @@ function Search({savedCities, isFahrenheit}) {
  
     const handleSearch = (e) => {
         e.preventDefault()
-        
         setCitySearch(citySearch.concat(<WeatherCard  newCity={e.target.elements[0].value} info={info} isFahrenheit={isFahrenheit}/>))
 
         e.target.reset()
@@ -58,7 +58,12 @@ function Search({savedCities, isFahrenheit}) {
 
 
     return (
-<div className="home">
+<motion.div className="search"
+    initial={{x: 0, opacity: 0}}
+    animate={{x: 0, opacity: 1, transition: {duration: 0.6}}}
+     >
+
+
 <div class="title">
     <div class="box">W</div>
     <div class="box">E</div>
@@ -80,7 +85,7 @@ function Search({savedCities, isFahrenheit}) {
 <div className="weather-container">
         {citySearch}
     </div>
-</div>
+</motion.div>
 )
  }
 
