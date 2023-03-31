@@ -49,22 +49,21 @@ function Search({savedCities, isFahrenheit}) {
  
     const handleSearch = (e) => {
         e.preventDefault()
-        const stuff =  e.target.elements[0].value
-
+        const stuff = e.target.elements[0].value
+      
         const run = (name) => {
-
-                setCitySearch(citySearch.concat(<WeatherCard  newCity={name} info={info} isFahrenheit={isFahrenheit}/>))
-             }
-
-            fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${stuff}&days=2&aqi=no&alerts=no`)
-            .then(response => response.json())
-            .then(data => run(data.location.name) )
-
-            
-
-
-        e.target.reset()
-     }
+          setCitySearch(citySearch.concat(<WeatherCard newCity={name} info={info} isFahrenheit={isFahrenheit} />))
+        }
+      
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${stuff}&days=2&aqi=no&alerts=no`)
+        .then(response => response.json())
+        .then(data => {run(data.location.name)})
+            .catch(error => {
+            alert(`"${stuff}" isn't a city dumbass.`)
+        })
+            e.target.reset()
+      }
+      
     
 
 

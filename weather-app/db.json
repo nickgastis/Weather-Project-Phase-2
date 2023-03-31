@@ -1,3 +1,12 @@
 {
-  "saved": []
+  "saved": [
+    {
+      "cityname": "Los Angeles",
+      "id": "Los Angeles"
+    },
+    {
+      "cityname": "Seattle",
+      "id": "Seattle"
+    }
+  ]
 }
