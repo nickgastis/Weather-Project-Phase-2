@@ -17,20 +17,19 @@
   align-items: center;
   background: #A0C5E8;
   height: 80px;
-  
 }
 
 .header-logo {
   height: 80px;
   width: 80px;
   transition: transform 0.3s ease-in-out;
-  margin-right: 390px;
-  
 }
 
 .header-logo:hover {
   transform: scale(1.1) rotate(-10deg);
 }
+
+
 
 .header-logo:active {
   transform: scale(0.9);
@@ -38,21 +37,102 @@
 
 .menu {
   display: flex;
-  
   justify-content: center;
   gap: 30px;
   max-width: 700px;
-  margin-right: 200px;
+  max-height: 80px;
 }
 
 .toggle-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  margin-right: 75px;
-  
+  gap: 70px;
 }
+
+/* LOGGED OUT */
+
+.header-logo-out {
+  margin-right: 510px;
+  height: 80px;
+  width: 80px;
+  transition: transform 0.3s ease-in-out;
+}
+.header-logo-out:hover {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+.menu-logged-out {
+  margin-right: 400px;
+  gap: 30px;
+  justify-content: center;
+  display: flex;
+}
+
+ .toggle-div-out {
+  margin-right: 100px;
+}
+
+/* LOGGED IN */
+
+.header .header-logo {
+  margin-right: 390px;
+}
+
+.header .menu {
+  margin-right: 230px;
+}
+
+.header .toggle-div {
+  margin-right: 30px;
+}
+
+/* BUTTONS */
+
+.login-buttons {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.login-buttons {
+  --border-right: 6px;
+  --text-stroke-color: rgb(192, 208, 214);
+  --animation-color: #e0e4e7;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.login-buttons:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+
+
+
 
 
 .box {

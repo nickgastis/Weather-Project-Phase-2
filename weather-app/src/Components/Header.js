@@ -31,16 +31,16 @@ function Header({handleToggle}) {
   }, [hidden]);
   
   
-  
+  //LOGGED OUT
   if(!user) {
     return (
       <div className={`header${hidden ? " hidden" : ""}`}>
-      <a className="logo">
+      <a className="header-logo-out">
       <Link to={'/'}>
-      <img src='/images/logo-2.png' className='header-logo' alt=""></img>
+      <img src='/images/logo-2.png' className='header-logo-out' alt=""></img>
       </Link>
       </a>
-      <div className="menu">
+      <div className="menu-logged-out">
         <Link to={'/'}>
           <button className="button-main">Home</button>
         </Link>
@@ -51,7 +51,7 @@ function Header({handleToggle}) {
        
       </div>
       
-      <div className="toggle-div">
+      <div className="toggle-div-out">
 
        <LoginButton />
         
@@ -76,7 +76,7 @@ function Header({handleToggle}) {
           <button className="button-main">Home</button>
         </Link>
         <Link to={'/SaveList'}>
-        <button className="button-main">Save List</button>
+        <button className="button-main">My Cities</button>
         </Link>
         <Link to={'/Search'}>
         <button className="button-main">Search</button>

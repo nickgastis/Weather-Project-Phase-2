@@ -45,6 +45,7 @@ function Home({savedCities, isFahrenheit}) {
     }
 
     const newCitys = cities.map((city) => {
+        
         return <WeatherCard key={city} newCity={city} info={info} isFahrenheit={isFahrenheit}/>
     })
  

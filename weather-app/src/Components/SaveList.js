@@ -71,7 +71,7 @@ const displayInfo = (el) => {
     </div>
     {toDisplay()}
     
-    <h1 className="popular-cities">Your Cities</h1>
+    <h1 className="popular-cities">My Cities</h1>
     
     
     <div className="weather-container">

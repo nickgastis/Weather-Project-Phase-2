@@ -49,17 +49,22 @@ function Search({savedCities, isFahrenheit}) {
  
     const handleSearch = (e) => {
         e.preventDefault()
-        const newCityName = e.target.elements[0].value.trim()
-        
-        if (newCityName === '') {
-          // If the city name is empty, do not add the card
-          return
-        }
-      
-        setCitySearch(citySearch.concat(<WeatherCard  newCity={newCityName} info={info} isFahrenheit={isFahrenheit}/>))
-        e.target.reset()
-      }
+        const stuff =  e.target.elements[0].value
 
+        const run = (name) => {
+
+                setCitySearch(citySearch.concat(<WeatherCard  newCity={name} info={info} isFahrenheit={isFahrenheit}/>))
+             }
+
+            fetch(`https://api.weatherapi.com/v1/forecast.json?key=c05087638ec341d5a50134107232403&q=${stuff}&days=2&aqi=no&alerts=no`)
+            .then(response => response.json())
+            .then(data => run(data.location.name) )
+
+            
+
+
+        e.target.reset()
+     }
     
 
 
